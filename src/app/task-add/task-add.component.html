@@ -1,0 +1,56 @@
+<form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+  <div formArrayName="tasks" style="margin-left: 300px;">
+    <div *ngFor="let task of tasks.controls; let i = index" [formGroupName]="i">
+      <div class="input">
+        <div class="pos1">
+          <label class="lbl1" for="taskName">Task Name:</label>
+          <input class="inp1" type="text" id="taskName" formControlName="taskName">
+        </div>
+        <br>
+        <div class="pos2">
+          <label class="lbl2" for="userName">User Name:</label>
+          <input class="inp2" type="text" id="userName" formControlName="userName">
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <div class="btn" style="margin-top: 20px; margin-bottom: 20px;">
+    <button class="btnp" type="button" (click)="addTask()" >Add Task</button>
+    <div style="width: 40px;"></div>
+    <button class="btnp" type="submit">Submit</button>
+  </div>
+
+</form>
+
+
+<table id="tasks">
+  <thead>
+    <tr>
+      <th>Task Name</th>
+      <th>User Name</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let task of tasks.controls; let i = index">
+      <td>
+        <input type="text" [ngModel]="task.get('taskName')?.value" 
+               (ngModelChange)="task.get('taskName')?.setValue($event)" [disabled]="!isEditEnabled || editingIndex !== i">
+      </td>
+      <td>
+        <input type="text" [ngModel]="task.get('userName')?.value">
+      </td>
+      <td>
+        <div>
+          <button class="btnTbl btn1" (click)="editTask(i)">
+            {{ isEditEnabled && editingIndex === i ? 'Save' : 'Edit' }}
+          </button>
+          <button class="btnTbl btn2" (click)="deleteTask(i)">Delete</button>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>

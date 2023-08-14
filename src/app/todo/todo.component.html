@@ -1,0 +1,61 @@
+<form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+    <!-- Devam Eden Görevler -->
+    <br>
+    <div  style="display: flex;">
+        <div style="flex: 1;  margin-left: 300px;">
+        <h2>In-progress Tasks</h2>
+        <div *ngFor="let taskGroup of ongoingTasks; let i = index" [formGroup]="taskGroup">
+            <!-- Görev içeriği görüntüleme -->
+            <!-- <p>ID: {{ taskGroup.value.id }}</p> -->
+            <p>Görev Adı: {{ taskGroup.value.taskName }}</p>
+            <!-- <p>Kullanıcı Adı: {{ taskGroup.value.userName }}</p> -->
+
+            <!-- Tamamlandı butonu -->
+            <button (click)="completeTask(i)">Completed</button>
+        </div>
+    </div>
+<br><br>
+    <!-- Tamamlanan Görevler -->
+    <div style="flex: 1;">
+        <table>
+            <tr>
+                <th>
+                    <h2>Completed Task</h2>
+                </th>
+            </tr>
+            <tr>
+                    <div *ngFor="let taskGroup of completedTasks; let i = index" [formGroup]="taskGroup" >
+                        <!-- Görev içeriği görüntüleme -->
+                       <!-- <td><p>ID: {{ taskGroup.value.id }}</p></td> -->
+                        <td> <p>Task Name: {{ taskGroup.value.taskName }}</p></td>
+                       <!-- <td><p>Kullanıcı Adı: {{ taskGroup.value.userName }}</p></td> -->
+                        
+                        <hr>
+                    </div>
+            </tr>
+
+        </table>
+
+    </div>
+    </div>
+
+
+
+<br><br>
+    <div formArrayName="tasks" style=" margin-left: 300px;">
+        <div *ngFor="let task of tasks.controls; let i = index" [formGroupName]="i">
+            <label for="taskName">Task Name:</label>
+            <input type="text" id="taskName" formControlName="taskName">
+
+            <label for="userName">User Name:</label>
+            <input type="text" id="userName" formControlName="userName">
+        </div>
+    </div>
+<br>
+<br>
+<div style="margin-left: 300px; margin-top: 50px;">
+    <button type="button" (click)="addTask()">Add Task</button>
+    <button type="submit">Submit</button> 
+</div>
+   
+</form>

@@ -1,0 +1,133 @@
+/* todo.component.css */
+
+.task-section {
+    margin-bottom: 20px;
+  }
+  
+  .task-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  button {
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #ddd;
+  }
+  /* todo.component.css */
+
+.todo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .task-section {
+    margin-bottom: 20px;
+  }
+  
+  .task-item {
+    border: 1px solid #ccc;
+    padding: 15px;
+    background-color: #f7f7f7;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .task-item:hover {
+    background-color: #e0e0e0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .task-details {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .task-details p {
+    margin: 5px 0;
+  }
+  
+  .task-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #ddd;
+  }
+  
+  .completed-task {
+    background-color: #c1e0c1;
+  }
+  
+  .completed-task:hover {
+    background-color: #a5d5a5;
+  }
+  
+  .ongoing-task {
+    background-color: #f7b8b8;
+  }
+  
+  .ongoing-task:hover {
+    background-color: #f59b9b;
+  }
+
+.task-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .task-form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .task-form input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+    transition: border-color 0.3s;
+  }
+  
+  .task-form input:focus {
+    border-color: #3498db;
+  }
+  
+  .task-form button[type="button"],
+  .task-form button[type="submit"] {
+    padding: 10px 15px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .task-form button[type="button"]:hover,
+  .task-form button[type="submit"]:hover {
+    background-color: #2980b9;
+  }
+
+  .body {
+    background-color: linear-gradient(to right, blue, green);
+  }
